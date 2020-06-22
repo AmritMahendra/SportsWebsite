@@ -14,9 +14,14 @@ routes.get("/status", (req, res) => {
   res.send({ status: "200" });
 });
 
-routes.get("/event/:eventID ", EventController.getEventById);
+//Events
+routes.get("/event/:eventId ", EventController.getEventById);
+routes.delete("/event/:eventId ", EventController.delete);
 routes.post("/event", upload.single("thumbnail"), EventController.createEvent);
+routes.get("/events", EventController.getAllEvents);
+routes.get("/events/:sport", EventController.getSport);
 
+//User
 routes.post("/events/createEvent", EventController.createEvent);
 routes.post("/user/register", UserController.createUser);
 routes.post("/user/:userId", UserController.getUserById);
