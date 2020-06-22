@@ -63,10 +63,10 @@ module.exports = {
   },
 
   async delete(req, res) {
-    const { eventId } = req.body;
+    const { eventId } = req.params;
     try {
       await Event.findByIdAndDelete(eventId);
-      return res.status(204);
+      return res.status(204).json({ message: "ok" });
     } catch (error) {
       return res
         .status(400)
