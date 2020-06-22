@@ -25,10 +25,8 @@ module.exports = {
   },
 
   async getEventById(req, res) {
-    console.log("Hello");
+    const { eventId } = req.params;
     try {
-      const { eventId } = req.params;
-      console.log("Hello");
       const event = await Event.findById(eventId);
       if (event) {
         return res.json(event);
@@ -37,6 +35,19 @@ module.exports = {
       return res.status(400).json({ message: "Id does not exist" });
     }
   },
+
+  // async getEventById(req, res) {
+
+  //   const { eventId } = req.params;
+  //   try {
+  //     const event = await Event.findById(eventId);
+  //     if (event) {
+  //       return res.json(event);
+  //     }
+  //   } catch (error) {
+  //     return res.status(400).json({ message: "Id does not exist" });
+  //   }
+  // },
 
   async getAllEvents(req, res) {
     try {

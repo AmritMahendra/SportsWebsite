@@ -15,8 +15,8 @@ routes.get("/status", (req, res) => {
 });
 
 //Events
-routes.get("/event/:eventId ", EventController.getEventById); //Something is wrong here
-//routes.delete("/event/:eventId ", EventController.delete); //Something is wrong here as well
+routes.get("/event/:eventId", EventController.getEventById);
+
 routes.post("/event", upload.single("thumbnail"), EventController.createEvent);
 routes.get("/events", EventController.getAllEvents);
 routes.get("/events/:sport", EventController.getSport);
